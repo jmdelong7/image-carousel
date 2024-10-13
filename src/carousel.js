@@ -8,18 +8,12 @@ export default class Carousel {
     return this.imgs[this.idx];
   }
 
-  addImg(img) {
-    this.imgs.push(img);
-  }
-
   next() {
     this.idx = (this.idx + 1) % this.imgs.length;
-    return this.currentImg;
   }
 
   previous() {
     this.idx = (this.idx - 1 + this.imgs.length) % this.imgs.length;
-    return this.currentImg;
   }
 
   goToIdx(idx) {

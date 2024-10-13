@@ -1,14 +1,20 @@
-import Carousel from "./carousel";
-import createImage from "./create-image";
+import Carousel from './carousel';
+import createImgEles from './create-image';
 
-class Controller {
-  constructor(doc, carousel, frame, nextBtn, prevBtn, nav) {
+export default class Controller {
+  constructor(doc, frame, nextBtn, prevBtn, nav, imgs) {
+    this.carousel = new Carousel(imgs);
     this.doc = doc;
-    this.carousel = carousel;
     this.frame = frame;
     this.nextBtn = nextBtn;
     this.prevBtn = prevBtn;
     this.nav = nav;
+
+    this.convertCarouselImgs();
+  }
+
+  convertCarouselImgs() {
+    this.carousel.imgs = createImgEles(this.doc, this.carousel.imgs);
   }
 
   nextPrevEventListeners() {
@@ -33,16 +39,10 @@ class Controller {
     this.nav.insertAdjacentElement('beforeend', circle);
   }
 
-  addImg(src, alt) {
-    const img = createImage(this.doc, src, alt);
-    this.carousel.addImg(img);
-    const circle = this.createNavCircle();
-    this.navEventListener(circle, img);
-  }
-
-  addImgs(...imgs) {
-    imgs.forEach((img) => {
-      this.addImg(img.src, img.alt);
+  assignNavCircles() {
+    this.carousel.imgs.forEach((img) => {
+      const circle = this.createNavCircle();
+      this.navEventListener(circle, img);
     });
   }
 
