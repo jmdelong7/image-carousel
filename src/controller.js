@@ -2,7 +2,7 @@ import Carousel from './carousel';
 import createImgEles from './create-image';
 
 export default class Controller {
-  constructor(frame, nextBtn, prevBtn, nav, imgs) {
+  constructor(frame, prevBtn, nextBtn, nav, imgs) {
     this.carousel = new Carousel(imgs);
     this.frame = frame;
     this.nextBtn = nextBtn;

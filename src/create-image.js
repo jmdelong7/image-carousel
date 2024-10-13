@@ -1,10 +1,10 @@
-function createImg(doc, src, alt) {
-  const img = doc.createElement('img');
+function createImg(src, alt) {
+  const img = document.createElement('img');
   img.src = src;
   img.alt = alt;
   return img;
 }
 
-export default function createImgEles(doc, ...imgs) {
-  imgs.map((img) => createImg(doc, img.src, img.alt));
+export default function createImgEles(imgs) {
+  return imgs.map((img) => createImg(img.src, img.alt));
 }

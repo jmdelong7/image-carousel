@@ -1,5 +1,5 @@
 export default class Carousel {
-  constructor(...imgs) {
+  constructor(imgs) {
     this.imgs = imgs;
     this.idx = 0;
   }
