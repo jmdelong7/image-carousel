@@ -10,6 +10,9 @@ export default class Controller {
     this.nav = nav;
 
     this.convertCarouselImgs();
+    this.nextPrevEventListeners();
+    this.assignNavCircles();
+    this.displayImg(this.carousel.imgs[0]);
   }
 
   convertCarouselImgs() {
@@ -26,16 +29,18 @@ export default class Controller {
     });
   }
 
-  navEventListener(circle, img) {
-    circle.addEventListener('click', () => {
-      this.displayImg(img);
-    });
-  }
-
   createNavCircle() {
     const circle = document.createElement('li');
     circle.classList.add('circle');
     this.nav.insertAdjacentElement('beforeend', circle);
+    return circle;
+  }
+
+  navEventListener(circle, img) {
+    circle.addEventListener('click', () => {
+      const idx = this.carousel.imgs.indexOf(img);
+      this.goToIdx(idx);
+    });
   }
 
   assignNavCircles() {

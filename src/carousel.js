@@ -17,10 +17,6 @@ export default class Carousel {
   }
 
   goToIdx(idx) {
-    if (idx < 0 && idx >= this.imgs.length) {
-      return this.idx;
-    }
     this.idx = idx;
-    return this.imgs[idx];
   }
 }

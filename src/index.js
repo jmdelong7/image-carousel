@@ -37,5 +37,4 @@ function display(frameId, prevBtnId, nextBtnId, navId) {
   return new Controller(frame, prevBtn, nextBtn, nav, imgs);
 }
 
-window.imgs = imgs;
 window.display = display('frame', 'prev', 'next', 'nav-list');
