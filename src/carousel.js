@@ -1,4 +1,4 @@
-class Carousel {
+export default class Carousel {
   constructor(...imgs) {
     this.imgs = imgs;
     this.idx = 0;
@@ -6,6 +6,10 @@ class Carousel {
 
   get currentImg() {
     return this.imgs[this.idx];
+  }
+
+  addImg(img) {
+    this.imgs.push(img);
   }
 
   next() {
