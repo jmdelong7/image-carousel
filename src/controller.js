@@ -15,6 +15,10 @@ export default class Controller {
     this.displayImg(this.carousel.imgs[0]);
   }
 
+  nextTimeout(time) {
+    setInterval(this.next.bind(this), time);
+  }
+
   convertCarouselImgs() {
     this.carousel.imgs = createImgEles(this.carousel.imgs);
   }
