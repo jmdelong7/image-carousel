@@ -2,21 +2,23 @@ import Carousel from './carousel';
 import createImgEles from './create-image';
 
 export default class Controller {
-  constructor(frame, prevBtn, nextBtn, nav, imgs) {
+  constructor(frame, prevBtn, nextBtn, nav, imgs, timeout) {
     this.carousel = new Carousel(imgs);
     this.frame = frame;
     this.nextBtn = nextBtn;
     this.prevBtn = prevBtn;
     this.nav = nav;
+    this.timeout = timeout;
 
     this.convertCarouselImgs();
     this.nextPrevEventListeners();
     this.assignNavCircles();
     this.displayImg(this.carousel.imgs[0]);
+    this.nextTimeout();
   }
 
-  nextTimeout(time) {
-    setInterval(this.next.bind(this), time);
+  nextTimeout() {
+    setInterval(this.next.bind(this), this.timeout);
   }
 
   convertCarouselImgs() {

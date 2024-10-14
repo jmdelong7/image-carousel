@@ -29,12 +29,12 @@ const imgs = [
   },
 ];
 
-function display(frameId, prevBtnId, nextBtnId, navId) {
+function display(frameId, prevBtnId, nextBtnId, navId, timeout) {
   const frame = document.getElementById(frameId);
   const prevBtn = document.getElementById(prevBtnId);
   const nextBtn = document.getElementById(nextBtnId);
   const nav = document.getElementById(navId);
-  return new Controller(frame, prevBtn, nextBtn, nav, imgs);
+  return new Controller(frame, prevBtn, nextBtn, nav, imgs, timeout);
 }
 
-window.display = display('frame', 'prev', 'next', 'nav-list');
+window.display = display('frame', 'prev', 'next', 'nav-list', 5000);
