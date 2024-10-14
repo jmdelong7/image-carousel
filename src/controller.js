@@ -36,6 +36,12 @@ export default class Controller {
     return circle;
   }
 
+  toggleNavSelected() {
+    const circles = [...this.nav.childNodes];
+    circles.forEach((li) => li.classList.remove('filled'));
+    circles[this.carousel.idx].classList.add('filled');
+  }
+
   navEventListener(circle, img) {
     circle.addEventListener('click', () => {
       const idx = this.carousel.imgs.indexOf(img);
@@ -53,6 +59,7 @@ export default class Controller {
   displayImg(img) {
     this.frame.innerHTML = '';
     this.frame.insertAdjacentElement('beforeend', img);
+    this.toggleNavSelected();
   }
 
   next() {
